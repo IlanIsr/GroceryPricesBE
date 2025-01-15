@@ -1,0 +1,22 @@
+{
+  "branches": {
+    "tableName": "branches",
+    "requiredFields": ["address", "neighborhood_id", "supermarket_id"]
+  },
+  "supermarkets": {
+    "tableName": "supermarket",
+    "requiredFields": ["name", "address", "neighborhood_id"]
+  },
+  "product_lines": {
+    "tableName": "product_lines",
+    "requiredFields": ["name", "product_id"]
+  },
+  "products": {
+    "tableName": "products",
+    "requiredFields": ["name", "price", "quantity", "supermarket_id"]
+  },
+  "neighborhoods": {
+    "tableName": "neighborhood",
+    "requiredFields": ["name"]
+  }
+}

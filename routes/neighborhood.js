@@ -1,17 +1,17 @@
 const express = require("express");
 const {
-  getAllNeighborhoods,
-  getNeighborhoodById,
-  createNeighborhood,
-  updateNeighborhood,
-  deleteNeighborhood
-} = require("../controllers/neighborhoodController");
+  getAll,
+  getById,
+  create,
+  update,
+  delete: delete_,
+} = require("../controllers/neighborhood");
 const router = express.Router();
 
-router.get("/", getAllNeighborhoods); // Liste de tous les quartiers
-router.get("/:id", getNeighborhoodById); // Détails d'un quartier par ID
-router.post("/", createNeighborhood); // Création d'un nouveau quartier
-router.put("/:id", updateNeighborhood); // Mise à jour d'un quartier
-router.delete("/:id", deleteNeighborhood); // Suppression d'un quartier
+router.get("/", getAll); // Liste de tous les quartiers
+router.get("/:id", getById); // Détails d'un quartier par ID
+router.post("/", create); // Création d'un nouveau quartier
+router.put("/:id", update); // Mise à jour d'un quartier
+router.delete("/:id", delete_); // Suppression d'un quartier
 
 module.exports = router;

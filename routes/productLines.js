@@ -1,17 +1,17 @@
 const express = require("express");
 const {
-  getAllProductLines,
-  getProductLineById,
-  createProductLine,
-  updateProductLine,
-  deleteProductLine,
-} = require("../controllers/productLineController");
+  getAll,
+  getById,
+  create,
+  update,
+  delete: delete_,
+} = require("../controllers/productLines");
 const router = express.Router();
 
-router.get("/", getAllProductLines); // Liste de tous les produits
-router.get("/:id", getProductLineById); // Détails d'un produit par ID
-router.post("/", createProductLine); // Création d'un nouveau produit
-router.put("/:id", updateProductLine); // Modification d'un produit par ID
-router.delete("/:id", deleteProductLine); // Suppression d'un produit par ID
+router.get("/", getAll); // Liste de tous les produits
+router.get("/:id", getById); // Détails d'un produit par ID
+router.post("/", create); // Création d'un nouveau produit
+router.put("/:id", update); // Modification d'un produit par ID
+router.delete("/:id", delete_); // Suppression d'un produit par ID
 
 module.exports = router;
