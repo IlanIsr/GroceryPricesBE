@@ -48,6 +48,35 @@ const createProduct = (req, res) => {
   );
 };
 
+const updateProduct = (req, res) => {
+  const productId = req.params.id;
+  const { name, code } = req.body;
+
+  db.query(
+    "UPDATE products SET name = ?, code = ? WHERE id = ?",
+    [name, code, productId],
+    (err, results) => {
+      if (err) {
+        console.error("Erreur lors de la mise à jour :", err);
+        return res.status(500).json({ error: "Erreur du serveur." });
+      }
+
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ error: "Product introuvable." });
+      }
+
+      res.status(200).json({
+        message: "Product mise à jour avec succès.",
+        updatedBranch: {
+          id: productId,
+          name,
+          code,
+        },
+      });
+    }
+  );
+};
+
 const deleteProduct = (req, res) => {
   const productId = req.params.id;
   db.query("DELETE FROM products WHERE id = ?", [productId], (err, results) => {
@@ -69,5 +98,6 @@ module.exports = {
   getAllProducts,
   getProductById,
   createProduct,
+  updateProduct,
   deleteProduct,
 };
