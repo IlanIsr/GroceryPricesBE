@@ -12,11 +12,13 @@ const branchRoutes = require("./routes/branches");
 const productRoutes = require("./routes/products");
 const productLineRoutes = require("./routes/productLines");
 const neighborhoodRoutes = require("./routes/neighborhood");
+const supermarketRoutes = require("./routes/supermarkets");
 
 app.use("/branches", branchRoutes);
 app.use("/products", productRoutes);
 app.use("/product-lines", productLineRoutes);
 app.use("/neighborhoods", neighborhoodRoutes);
+app.use("/supermarkets", supermarketRoutes);
 
 // Démarrage du serveur
 app.listen(port, () => {
